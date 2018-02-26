@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+          FirebaseApp.configure()
+        
+        if let user = AuthUserService.getCurrentUser() {
+            
+            
+            window = UIWindow(frame: UIScreen.main.bounds)
+            let tbc = UITabBarController()
+            let pst = PostVC.storyBoardInstance()
+            pst.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "postfeed"), tag: 0)
+            let cpv = CreatePostVC.storyBoardInstance()
+            cpv.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "createpost"), tag: 1)
+            tbc.viewControllers = [pst, cpv]
+            window?.rootViewController = tbc
+            window?.makeKeyAndVisible()
+            
+            
+        } else {
+            
+            let viewController = LoginVC.storyBoardInstance()
+            
+            window = UIWindow(frame: UIScreen.main.bounds) //Sets window to all sides
+            window?.rootViewController = viewController
+            window?.makeKeyAndVisible() //Make key window visible on the screen
+            
+        }
+        
+        
+        
         return true
     }
 
