@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let user = AuthUserService.getCurrentUser() {
             
-            
             window = UIWindow(frame: UIScreen.main.bounds)
             let tbc = UITabBarController()
             let pst = PostVC.storyBoardInstance()
@@ -32,15 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = tbc
             window?.makeKeyAndVisible()
             
-            
         } else {
             
             let viewController = LoginVC.storyBoardInstance()
-            
             window = UIWindow(frame: UIScreen.main.bounds) //Sets window to all sides
             window?.rootViewController = viewController
             window?.makeKeyAndVisible() //Make key window visible on the screen
-            
         }
         
         

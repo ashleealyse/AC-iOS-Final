@@ -25,20 +25,17 @@ class PostVC: UIViewController {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         DBService.manager.getPosts { (allPosts) in
             self.posts = allPosts
         }
+        
     }
     
     //Actions
     //Sign Out Button
     @IBAction func signoutButton(_ sender: UIBarButtonItem) {
         AuthUserService.manager.signOut()
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -53,11 +50,12 @@ extension PostVC {
 
 //Sign Out Delegates Called
 extension PostVC: AuthUserServiceDelegate {
+    
     func didSignOut(_ userService: AuthUserService) {
+        dismiss(animated: true, completion: nil)
         present(LoginVC.storyBoardInstance(), animated: true, completion: nil)
-        print("User Signed Out")
     }
-
+    
     func didFailSigningOut(_ userService: AuthUserService, error: Error) {
         let alert = UIAlertController(title: "Signing Out Error", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
@@ -66,16 +64,18 @@ extension PostVC: AuthUserServiceDelegate {
     }
 }
 
+
+//Table View Extensions
 extension PostVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 450
+        tableView.rowHeight = UITableViewAutomaticDimension
+        return 300
     }
 }
 
 extension PostVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return posts.count
     }
     

@@ -18,9 +18,9 @@ class CreatePostVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     //Outlets
     @IBOutlet weak var postButtonOutlet: UIBarButtonItem!
-    
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var textScroll: UITextView!
+    @IBOutlet weak var cancelButtonOutlet: UIBarButtonItem!
     
     //View Did Load
     override func viewDidLoad() {
@@ -35,6 +35,14 @@ class CreatePostVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     }
     
     //Actions
+    
+    //Cancel Post
+    @IBAction func cancelPostButton(_ sender: UIBarButtonItem) {
+        textScroll.text = ""
+        postImage.image = nil
+        textScroll.resignFirstResponder()
+    }
+    
 
     //Add Photo
     @IBAction func addPhoto(_ sender: UIButton) {
@@ -87,6 +95,7 @@ extension CreatePostVC: DBServiceDelegate {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
         }))
         self.present(alert, animated: true, completion: nil)
+        
     }
     
     func didFailToAddPost() {
@@ -94,6 +103,19 @@ extension CreatePostVC: DBServiceDelegate {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+}
+
+extension CreatePostVC: UITextViewDelegate {
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        resignFirstResponder()
+        cancelButtonOutlet.isEnabled = false
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        cancelButtonOutlet.isEnabled = true
     }
     
 }

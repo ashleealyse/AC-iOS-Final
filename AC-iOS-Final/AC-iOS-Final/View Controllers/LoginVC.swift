@@ -35,27 +35,6 @@ class LoginVC: UIViewController {
     }
 }
 
-//Login Delegates Called
-extension LoginVC: AuthUserServiceDelegate {
-    
-    func didSignIn(_ userService: AuthUserService, user: AppUser) {
-        let tbc = UITabBarController()
-        let pst = PostVC.storyBoardInstance()
-        pst.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "postfeed"), tag: 0)
-        let cpv = CreatePostVC.storyBoardInstance()
-        cpv.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "createpost"), tag: 1)
-        tbc.viewControllers = [pst, cpv]
-        present(tbc, animated: true, completion: nil)
-        print("User Signed In")
-    }
-
-    func didFailSigningIn(_ userService: AuthUserService, error: Error) {
-        let alert = UIAlertController(title: "Sign In Error ", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-        }))
-        self.present(alert, animated: true, completion: nil)
-    }
-}
 
 //Storyboard Instance
 extension LoginVC {
@@ -87,6 +66,28 @@ extension LoginVC {
         let alert = UIAlertController(title: "Account Could Not Created ", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+//Login Delegates Called
+extension LoginVC: AuthUserServiceDelegate {
+    
+    func didSignIn(_ userService: AuthUserService, user: AppUser) {
+        let tbc = UITabBarController()
+        let pst = PostVC.storyBoardInstance()
+        pst.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "postfeed"), tag: 0)
+        let cpv = CreatePostVC.storyBoardInstance()
+        cpv.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "createpost"), tag: 1)
+        tbc.viewControllers = [pst, cpv]
+        present(tbc, animated: true, completion: nil)
+        print("User Signed In")
+    }
+    
+    func didFailSigningIn(_ userService: AuthUserService, error: Error) {
+        let alert = UIAlertController(title: "Sign In Error ", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
         }))
         self.present(alert, animated: true, completion: nil)
     }
