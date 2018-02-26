@@ -14,7 +14,7 @@ class CreatePostVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     //Variables
     let controller = UIImagePickerController()
-    public var imagePost = UIImage()
+//    public var imagePost = UIImage()
     
     //Outlets
     @IBOutlet weak var postButtonOutlet: UIBarButtonItem!
@@ -49,7 +49,7 @@ class CreatePostVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     //Finished Picking Media
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        imagePost = image
+//        imagePost = image
         postImage.image = image
         dismiss(animated: true, completion: nil)
         
@@ -58,7 +58,8 @@ class CreatePostVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBAction func createPost(_ sender: UIBarButtonItem) {
         
         if postImage.image != nil && textScroll.text != "" {
-            DBService.manager.addPost(image: imagePost , comment: textScroll.text)
+            DBService.manager.addPost(image: postImage.image, comment: textScroll.text)
+            
             textScroll.text = ""
             postImage.image = nil
         } else {

@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 class Post {
-    var imageURL: String
     var comment: String
     var uID: String
-    init(imageUrl: String, comment: String, uID: String) {
-        self.imageURL = imageUrl
+    var imageURL: String
+    init(comment: String, uID: String, imageURL: String) {
         self.comment = comment
         self.uID = uID
+        self.imageURL = imageURL
     }
     
     init(comment: String, uID: String){

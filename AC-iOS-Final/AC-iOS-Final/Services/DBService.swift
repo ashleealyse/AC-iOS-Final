@@ -38,6 +38,10 @@ class DBService: NSObject {
     
     public weak var delegate: DBServiceDelegate?
     
+    public func addImagesUsing(url: String, ref: DatabaseReference, id: String) {
+        ref.child(id).child("imageURL").setValue(url)
+        
+    }
     
     
     

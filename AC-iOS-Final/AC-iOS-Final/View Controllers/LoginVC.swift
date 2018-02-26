@@ -72,7 +72,6 @@ extension LoginVC {
     func didCreateUser(_ userService: AuthUserService, user: AppUser) {
         let alert = UIAlertController(title: "Account Created ", message: "Start Posting", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            self.navigationController?.popToRootViewController(animated: true)
         }))
         self.present(alert, animated: true, completion: nil)
         let tbc = UITabBarController()

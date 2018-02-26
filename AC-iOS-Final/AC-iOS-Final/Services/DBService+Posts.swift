@@ -22,10 +22,15 @@ extension DBService{
         let post = Post(comment: comment, uID: currentUser.uid)
         ref.setValue(["comment": post.comment,
                       "uID": post.uID])
+        
         StorageService.manager.storeImage(image: image!, postId: ref.key)
+//        getImagesFrom(url: , postID: ref.key)
         self.delegate?.didAddPost!()
     }
-
+    
+    public func getImagesFrom(url: String, postID: String) {
+        addImagesUsing(url: url, ref: postRef, id: postID)
+    }
     
     public func getPosts(completion: @escaping (_ category: [Post]) -> Void) {
         postRef.observe(.value) { (dataSnapshot) in
@@ -38,17 +43,15 @@ extension DBService{
                     return
                 }
                 
-                guard let imageUrl = postObject["image"] as? String,
+                guard let imageURL = postObject["imageURL"] as? String,
                     let comment = postObject["comment"] as? String,
                     let uID = postObject["uID"] as? String
                     else { print("error getting posts");return}
-                
         
-                let thisPost = Post(imageUrl: imageUrl, comment: comment, uID: uID)
+                let thisPost = Post(comment: comment, uID: uID, imageURL: imageURL)
                 posts.append(thisPost)
             }
-//            guard let userId = AuthUserService.getCurrentUser()?.uid else {print("cant get current users categories"); return}
-//            cards = cards.filter{ $0.uID ==  userId} //sort by time
+            
             
             DBService.manager.posts = posts
             completion(posts)
