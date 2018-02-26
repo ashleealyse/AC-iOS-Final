@@ -27,6 +27,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GfN-Po-W2h">
                                 <rect key="frame" x="16" y="290" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.96876329183578491" green="0.78833878040313721" blue="0.98825722932815552" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="LOGIN "/>
                                 <connections>
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jQU-pr-qdw"/>
@@ -40,6 +41,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoK-lg-AmS">
                                 <rect key="frame" x="16" y="328" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.96876329179999998" green="0.78833878040000005" blue="0.98825722930000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="CREATE ACCOUNT"/>
                                 <connections>
                                     <action selector="createAccountButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vTv-L0-d6N"/>

@@ -86,7 +86,7 @@ extension LoginVC: AuthUserServiceDelegate {
     }
     
     func didFailSigningIn(_ userService: AuthUserService, error: Error) {
-        let alert = UIAlertController(title: "Sign In Error ", message: error.localizedDescription, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error ", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
         }))
         self.present(alert, animated: true, completion: nil)
