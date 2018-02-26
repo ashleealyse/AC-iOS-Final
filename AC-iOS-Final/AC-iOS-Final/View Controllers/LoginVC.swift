@@ -93,5 +93,13 @@ extension LoginVC {
     }
 }
 
+extension LoginVC {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.usernameTF.resignFirstResponder()
+        self.passwordTF.resignFirstResponder()
+        return true
+    }
+}
+
 
 

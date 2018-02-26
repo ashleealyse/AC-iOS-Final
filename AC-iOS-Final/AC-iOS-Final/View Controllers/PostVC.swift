@@ -11,7 +11,12 @@ import UIKit
 class PostVC: UIViewController {
     
     //Variables
-    var posts = [Post]()
+    var posts = [Post]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     //Outlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,6 +25,9 @@ class PostVC: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         super.viewDidLoad()
+        DBService.manager.getPosts { (allPosts) in
+            self.posts = allPosts
+        }
     }
     
     //Actions
@@ -60,15 +68,17 @@ extension PostVC: UITableViewDelegate {
 extension PostVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return posts.count
-        return 3
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
-//        let thisPost = posts[indexPath.row]
-        cell.postImage.image = #imageLiteral(resourceName: "largeimage")
-//        cell.postTextView.text = thisPost.comment
+        let thisPost = posts[indexPath.row]
+        let imgURL = thisPost.imageURL
+        let imgStr = imgURL
+        let url = URL(string: imgStr)
+        cell.postImage.kf.setImage(with: url)
+        cell.postTextView.text = thisPost.comment
         return cell
     }
     

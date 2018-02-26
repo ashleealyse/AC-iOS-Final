@@ -11,5 +11,8 @@ pod 'Firebase'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'SnapKit' 
+pod 'Firebase/Storage'
+pod 'Kingfisher'
+
 
 end

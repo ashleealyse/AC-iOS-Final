@@ -12,6 +12,8 @@
 		5491521F203F335F009C7138 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5491521D203F335F009C7138 /* LaunchScreen.storyboard */; };
 		54915227203F339A009C7138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54915226203F339A009C7138 /* Assets.xcassets */; };
 		7B8E45BFFACA3B9BF4C02E39 /* Pods_AC_iOS_Final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E867DF267D2EC95B57822664 /* Pods_AC_iOS_Final.framework */; };
+		9357DA2E2044974D00A0606B /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9357DA2D2044974C00A0606B /* StorageService.swift */; };
+		9357DA302044977E00A0606B /* StorageService+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9357DA2F2044977E00A0606B /* StorageService+Image.swift */; };
 		93C30E5020445B61002317A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93C30E4F20445B61002317A8 /* GoogleService-Info.plist */; };
 		93C30E5520445CFC002317A8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C30E5420445CFC002317A8 /* LoginVC.swift */; };
 		93C30E5720445D56002317A8 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C30E5620445D56002317A8 /* PostVC.swift */; };
@@ -34,6 +36,8 @@
 		54915220203F335F009C7138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54915226203F339A009C7138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		824332E3CE9B496A4FEDACE0 /* Pods-AC-iOS-Final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-iOS-Final.release.xcconfig"; path = "Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final.release.xcconfig"; sourceTree = "<group>"; };
+		9357DA2D2044974C00A0606B /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		9357DA2F2044977E00A0606B /* StorageService+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StorageService+Image.swift"; sourceTree = "<group>"; };
 		93C30E4F20445B61002317A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		93C30E5420445CFC002317A8 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		93C30E5620445D56002317A8 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 				93C30E662044649E002317A8 /* DBService.swift */,
 				93C30E682044652C002317A8 /* DBService+User.swift */,
 				93C30E6A20446569002317A8 /* DBService+Posts.swift */,
+				9357DA2D2044974C00A0606B /* StorageService.swift */,
+				9357DA2F2044977E00A0606B /* StorageService+Image.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -239,6 +245,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -247,6 +254,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -297,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93C30E692044652C002317A8 /* DBService+User.swift in Sources */,
+				9357DA2E2044974D00A0606B /* StorageService.swift in Sources */,
 				93C30E6320445FF3002317A8 /* PostCell.swift in Sources */,
 				93C30E5920445D6A002317A8 /* CreatePostVC.swift in Sources */,
 				93C30E5E20445DF6002317A8 /* AppUser.swift in Sources */,
@@ -304,6 +313,7 @@
 				93C30E5720445D56002317A8 /* PostVC.swift in Sources */,
 				93C30E6B20446569002317A8 /* DBService+Posts.swift in Sources */,
 				93C30E6020445E43002317A8 /* Post.swift in Sources */,
+				9357DA302044977E00A0606B /* StorageService+Image.swift in Sources */,
 				54915215203F335F009C7138 /* AppDelegate.swift in Sources */,
 				93C30E5520445CFC002317A8 /* LoginVC.swift in Sources */,
 				93C30E672044649E002317A8 /* DBService.swift in Sources */,

@@ -7,49 +7,68 @@
 //
 
 import UIKit
+import Kingfisher
+import FirebaseDatabase
 
 class CreatePostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     //Variables
-       let controller = UIImagePickerController()
+    let controller = UIImagePickerController()
+    public var imagePost = UIImage()
     
     //Outlets
+    @IBOutlet weak var postButtonOutlet: UIBarButtonItem!
+    
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var textScroll: UITextView!
     
     //View Did Load
     override func viewDidLoad() {
+        super.viewDidLoad()
+        DBService.manager.delegate = self 
         let controller = UIImagePickerController()
         self.controller.delegate = self
         controller.sourceType = .photoLibrary
-        super.viewDidLoad()
+
+        
+        
     }
     
     //Actions
-    
-    //Post
-    @IBAction func createPost(_ sender: UIBarButtonItem) {
-    }
-    
-    
+
     //Add Photo
     @IBAction func addPhoto(_ sender: UIButton) {
         present(controller, animated: true, completion: nil)
     }
     
-        //Did Cancel
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            dismiss(animated: true, completion: nil)
-        }
+    //Did Cancel
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
     
-        //Finished Picking Media
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-            postImage.image = image
-            dismiss(animated: true, completion: nil)
+    //Finished Picking Media
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imagePost = image
+        postImage.image = image
+        dismiss(animated: true, completion: nil)
+        
+    }
+        //Post
+    @IBAction func createPost(_ sender: UIBarButtonItem) {
+        
+        if postImage.image != nil && textScroll.text != "" {
+            DBService.manager.addPost(image: imagePost , comment: textScroll.text)
+            textScroll.text = ""
+            postImage.image = nil
+        } else {
+            let alert = UIAlertController(title: "All Fields Required", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
-
-}
+        }
+    }
 
 //Storyboard Instance
 extension CreatePostVC {
@@ -60,68 +79,22 @@ extension CreatePostVC {
     }
 }
 
-//
-//
-//
-//
-//
-//
-//
-////
-////  BackgroundImageViewController.swift
-////  LearningImagePickerStuff
-////
-////  Created by Ashlee Krammer on 12/21/17.
-////  Copyright © 2017 Ashlee Krammer. All rights reserved.
-////
-//
-//import UIKit
-//
-//class BackgroundImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//
-//    //Outlets
-//    @IBOutlet weak var backgroundImage: UIImageView!
-//
-//    //Variable
-//
-//    //View Did Load
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//    }
-//
-//    //Touches began - detects touch
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        print("Screen touched")
-//        let controller = UIImagePickerController()
-//        controller.delegate = self
-//        controller.sourceType = .photoLibrary
-//        present(controller, animated: true, completion: nil)
-//    }
-//
-//
-//    //Conforming to Image Picker Controller
-//
-//
-//    //Did Cancel
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        dismiss(animated: true, completion: nil)
-//    }
-//
-//    //Finished Picking Media
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-//        backgroundImage.image = image
-//        dismiss(animated: true, completion: nil)
-//    }
-//
-//
-//}
-//
-
-
-
-
-
+extension CreatePostVC: DBServiceDelegate {
+    
+    func didAddPost() {
+        let alert = UIAlertController(title: "Post Added", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func didFailToAddPost() {
+        let alert = UIAlertController(title: "Error Posting", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+}
 
 
