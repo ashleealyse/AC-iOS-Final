@@ -48,17 +48,23 @@
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LhQ-EF-Otr"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-magazine-64" translatesAutoresizingMaskIntoConstraints="NO" id="QY0-pG-7ty">
+                                <rect key="frame" x="105" y="54" width="165" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.97622615098953247" green="0.8334769606590271" blue="0.93726670742034912" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="xoK-lg-AmS" firstAttribute="top" secondItem="GfN-Po-W2h" secondAttribute="bottom" constant="8" id="02x-bW-3Ny"/>
                             <constraint firstItem="QLS-ZX-7Lh" firstAttribute="top" secondItem="44a-q3-zQw" secondAttribute="bottom" constant="20" id="3lj-4N-1hL"/>
+                            <constraint firstItem="QY0-pG-7ty" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="105" id="7Gw-U1-vw1"/>
                             <constraint firstItem="QLS-ZX-7Lh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="C3r-CK-Dhu"/>
                             <constraint firstItem="GfN-Po-W2h" firstAttribute="top" secondItem="QLS-ZX-7Lh" secondAttribute="bottom" constant="20" id="Df7-5j-0kp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="44a-q3-zQw" secondAttribute="trailing" constant="16" id="KdO-CS-Jce"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xoK-lg-AmS" secondAttribute="trailing" constant="16" id="Kpr-qN-kcv"/>
                             <constraint firstItem="44a-q3-zQw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="LdM-gj-2IS"/>
+                            <constraint firstItem="QY0-pG-7ty" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="34" id="Nw0-S0-k7m"/>
                             <constraint firstItem="GfN-Po-W2h" firstAttribute="top" secondItem="QLS-ZX-7Lh" secondAttribute="bottom" constant="20" id="SIM-aL-RC0"/>
+                            <constraint firstItem="QY0-pG-7ty" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VFb-a1-Fs5"/>
                             <constraint firstItem="GfN-Po-W2h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="W2d-xr-kld"/>
                             <constraint firstItem="QLS-ZX-7Lh" firstAttribute="top" secondItem="44a-q3-zQw" secondAttribute="bottom" constant="20" id="Yad-mJ-22w"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GfN-Po-W2h" secondAttribute="trailing" constant="16" id="dxa-xW-T1j"/>
@@ -66,6 +72,7 @@
                             <constraint firstItem="xoK-lg-AmS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="pPl-yf-7pS"/>
                             <constraint firstItem="44a-q3-zQw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="170" id="qix-8h-5dc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QLS-ZX-7Lh" secondAttribute="trailing" constant="16" id="x8x-MI-sm3"/>
+                            <constraint firstItem="44a-q3-zQw" firstAttribute="top" secondItem="QY0-pG-7ty" secondAttribute="bottom" constant="8" id="zNi-dq-x6T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -77,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="295" y="133"/>
+            <point key="canvasLocation" x="293.60000000000002" y="132.68365817091455"/>
         </scene>
         <!--Title-->
         <scene sceneID="Rnq-LU-m0t">
@@ -180,7 +187,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="341" id="C6M-Hy-vpL" customClass="PostCell" customModule="AC_iOS_Final" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="341" id="C6M-Hy-vpL" customClass="PostCell" customModule="AC_iOS_Final" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="341"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C6M-Hy-vpL" id="nqD-bO-Tf9">
@@ -280,6 +287,7 @@
     <resources>
         <image name="camera_icon" width="60" height="55"/>
         <image name="createpost" width="50" height="50"/>
+        <image name="icons8-magazine-64" width="64" height="64"/>
         <image name="postfeed" width="50" height="50"/>
     </resources>
 </document>
