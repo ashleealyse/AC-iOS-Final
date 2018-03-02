@@ -38,6 +38,7 @@
 		824332E3CE9B496A4FEDACE0 /* Pods-AC-iOS-Final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-iOS-Final.release.xcconfig"; path = "Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final.release.xcconfig"; sourceTree = "<group>"; };
 		9357DA2D2044974C00A0606B /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		9357DA2F2044977E00A0606B /* StorageService+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StorageService+Image.swift"; sourceTree = "<group>"; };
+		93924D722049EEE5009A2177 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		93C30E4F20445B61002317A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		93C30E5420445CFC002317A8 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		93C30E5620445D56002317A8 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 			children = (
 				54915214203F335F009C7138 /* AppDelegate.swift */,
 				54915218203F335F009C7138 /* Main.storyboard */,
+				93924D722049EEE5009A2177 /* GoogleService-Info.plist */,
 				93C30E5A20445D9D002317A8 /* Models */,
 				93C30E5220445C46002317A8 /* Services */,
 				93C30E5120445C2D002317A8 /* View Controllers */,
